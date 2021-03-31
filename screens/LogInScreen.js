@@ -12,8 +12,8 @@ import Rect from '../assets/images/Rectangle.js';
 import logo from '../assets/images/logo.png';
 import Shadow from '../assets/images/Shadow.js';
 
-import TextBox from '../componutes/TextBox/index';
-import StyledButton from '../componutes/Button/loginIndex';
+import TextBox from '../components/TextBox/index';
+import StyledButton from '../components/Button/loginIndex';
 
 export default function LogInScreen({ navigation }) {
   return (

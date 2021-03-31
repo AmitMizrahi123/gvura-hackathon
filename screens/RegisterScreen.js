@@ -10,8 +10,8 @@ import {
 import Rect from '../assets/images/Rectangle.js';
 import logo from '../assets/images/logo.png';
 
-import TextBox from '../componutes/TextBox/index';
-import StyledRegButton from '../componutes/Button/registerIndex';
+import TextBox from '../components/TextBox/index';
+import StyledRegButton from '../components/Button/registerIndex';
 
 export default function RegisterScreen() {
   return (
