@@ -1,13 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
+// Import Packages
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import * as firebase from 'firebase';
+
+// Import Screens
+import LoginScreen from './screens/LogInScreen';
+import RegisterScreen from './screens/RegisterScreen';
+import apiKeys from './config/key';
+
+const Stack = createStackNavigator();
 
 export default function App() {
+  if (!firebase.apps.length) {
+    console.log('Connected with Firebase')
+    firebase.initializeApp(apiKeys);
+  }
+  
   return (
-    <View style={styles.container}>
-      <Text>Hello Hackathon</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="LogIn" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

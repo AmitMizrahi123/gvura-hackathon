@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,16 +6,20 @@ import {
   ImageBackground,
   Image,
   KeyboardAvoidingView,
+  TextInput
 } from 'react-native';
 import backGroundImage from '../assets/images/logIn.png';
 import Rect from '../assets/images/Rectangle.js';
 import logo from '../assets/images/logo.png';
 import Shadow from '../assets/images/Shadow.js';
 
-import TextBox from '../components/TextBox/index';
+// import TextBox from '../components/TextBox/index';
 import StyledButton from '../components/Button/loginIndex';
 
 export default function LogInScreen({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <ImageBackground source={backGroundImage} style={styles.container}>
       <Rect />
@@ -34,8 +38,27 @@ export default function LogInScreen({ navigation }) {
         </Text>
       </View>
       <View style={styles.textContainer}>
-        <TextBox content={'אימייל'}> </TextBox>
-        <TextBox content={'סיסמא'}></TextBox>
+        <TextInput
+            style={styles.textBox}
+            placeholder='E-mail'
+            placeholderTextColor="#aaaaaa"
+            onChangeText={(text) => setEmail(text)}
+            value={email}
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+        />
+        <TextInput
+            style={styles.textBox}
+            placeholderTextColor="#aaaaaa"
+            secureTextEntry
+            placeholder='Password'
+            onChangeText={(text) => setPassword(text)}
+            value={password}
+            underlineColorAndroid="transparent"
+            autoCapitalize="none"
+        />
+        {/* <TextBox content={'email'}></TextBox>
+        <TextBox content={'password'}></TextBox> */}
       </View>
       <KeyboardAvoidingView
         behavior="height"
@@ -43,7 +66,7 @@ export default function LogInScreen({ navigation }) {
         enabled={false}
       >
         <View style={styles.buttonContainer}>
-          <StyledButton content={'התחברות'}></StyledButton>
+          <StyledButton content={'LogIn'} email={email} password={password}></StyledButton>
         </View>
       </KeyboardAvoidingView>
     </ImageBackground>
@@ -74,9 +97,10 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   textContainer: {
-    position: 'absolute',
-    top: '50%',
     width: '100%',
+    padding: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   shadow: {
     position: 'absolute',
@@ -94,5 +118,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  textBox: {
+    height: 50,
+    width: 220,
+    borderRadius: 20,
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#000000',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    padding: 8,
+  },
+  text: {
+    fontSize: 12,
+    fontWeight: '500',
+    textTransform: 'uppercase',
   },
 });

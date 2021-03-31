@@ -3,11 +3,11 @@ import { AppLoading } from "expo";
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor: 'rgba(59, 89, 152, 100 )',                           /*CHANGE COLOR*/
+    backgroundColor: 'rgba(59, 89, 152, 100 )',
     },
     slider:{
       height: '30%',
-      backgroundColor: 'rgba(32, 42, 78, 1)',                            /*CHANGE COLOR*/        
+      backgroundColor: 'rgba(32, 42, 78, 1)',         
       borderBottomLeftRadius: 75,
     },
     menuIcon:{
